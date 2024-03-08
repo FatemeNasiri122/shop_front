@@ -1,0 +1,41 @@
+@import "../../index.scss";
+
+.category {
+  @include top-container;
+
+  .selectsContainer {
+    width: 100%;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+  }
+}
+
+.clear {
+  @include top-container;
+  background-color: $select-background;
+  height: auto;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+.paginationContainer {
+  margin-top: 30px;
+  @include center();
+}
+
+@media only screen and (max-width: 600px) {
+  .category {
+    h2 {
+      font-size: 12px;
+    }
+    .selectsContainer {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 16px;
+    }
+  }
+}

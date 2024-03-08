@@ -1,0 +1,39 @@
+@import "../../index.scss";
+
+.order {
+  padding: 16px;
+  margin-bottom: 20px;
+  @include cart-border;
+
+  .orderTextContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $date-color;
+  }
+
+
+  .imgsContainer {
+    display: flex;
+    margin-top: 16px;
+
+    .imgContainer {
+      width: 78px;
+      height: 100px;
+      margin-right: 16px;
+      @include cart-border;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .orderTextContainer {
+    grid-template-columns: 1fr !important;
+  }
+}

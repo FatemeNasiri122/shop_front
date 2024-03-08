@@ -1,0 +1,1 @@
+import{b as s,j as o}from"./index-kG6OA0Lj.js";import{C as a}from"./EmptyState.module-2GihuqGv.js";import{C as t}from"./CircularProgress-5_IFDHuH.js";const m=()=>{const{pathname:r}=s();return console.log(r),o.jsx("div",{className:a.errorContainer,children:o.jsx(t,{})})};export{m as L};

@@ -1,0 +1,85 @@
+@import "../../index.scss";
+
+.registerContainer {
+  width: 50%;
+  margin: auto;
+}
+.summaryContainer {
+  background-color: $final-color;
+  width: 100%;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+
+  h4 {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  p {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+.related {
+  width: 100%;
+  padding: 20px 0;
+
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 36px;
+  }
+}
+
+.infoContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+
+  .infoText {
+    color: $primary-color;
+  }
+}
+
+.noAddress {
+  margin: auto;
+  p {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+}
+
+.addressTitle {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.addressContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+   .registerContainer {
+    width: 90%;
+    margin: auto;
+  }
+  .infoContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+      span {
+        text-align: center;
+      }
+    .infoText {
+      color: $primary-color;
+    }
+  }
+}

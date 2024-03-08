@@ -1,0 +1,60 @@
+@import "../../index.scss";
+
+@keyframes welcomeHeader{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 100;
+  }
+}
+
+.bodymain {
+
+  .salesec {
+    background: url("/src/assets/img/repeat-grid.svg") no-repeat;
+    background-size: cover;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .slogan {
+      padding: 8px 12px;
+      background: $dark-color;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      h1 {
+        margin-bottom: 0;
+        animation: welcomeHeader 1s linear;
+        font-style: italic;
+        letter-spacing: 10px;
+      }
+
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .bodymain {
+    .salesec {
+      height: 430px;
+
+      .slogan {
+        margin: 8px;
+        h1 {
+          font-size: 18px;
+        }
+
+      }
+    }
+  }
+}

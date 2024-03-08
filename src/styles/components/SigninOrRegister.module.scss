@@ -1,0 +1,55 @@
+@import "../../index.scss";
+
+.registerContainer {
+  margin-top: 20px;
+  background-color: $final-color;
+  padding: 12px 32px;
+
+  p {
+    font-size: 18px;
+    text-transform: capitalize;
+  }
+
+  ul {
+    margin-bottom: 66px;
+    li {
+      margin: 16px 0;
+    }
+  }
+}
+
+.signinContainer {
+  margin-top: 40px;
+  form {
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  p {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 16px;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .registerContainer {
+    margin-top: 0;
+    padding: 12px 32px;
+     p {
+    font-size: 16px;
+  }
+  }
+
+  .signinContainer {
+    margin-top: 0px;
+
+    p {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  }
+
+}

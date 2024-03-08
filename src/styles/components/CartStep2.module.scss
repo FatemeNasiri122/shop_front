@@ -1,0 +1,6 @@
+@import "../../index.scss";
+
+.infoContainer {
+  display: grid;
+  grid-template-columns: repeat(5fr);
+}

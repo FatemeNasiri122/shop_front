@@ -1,0 +1,42 @@
+@import "../../index.scss";
+
+.userInformationContainer {
+  padding: 16px;
+  @include cart-border;
+
+  div {
+    color: inherit;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+  }
+
+  div:first-child {
+    margin-top: 0;
+  }
+
+  div:nth-child(3), div:nth-child(4), div:nth-child(5), div:nth-child(6) {
+    margin-top: 16px;
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .addressText {
+    margin-left: 8px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .active {
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .userInformationContainer {
+    margin-top: 20px;
+  }
+}

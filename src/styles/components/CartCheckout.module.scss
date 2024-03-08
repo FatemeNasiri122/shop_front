@@ -1,0 +1,29 @@
+@import "../../index.scss";
+
+.finalContainer {
+  width: 100%;
+  background-color: $final-color;
+  margin-top: 20px;
+  padding: 16px 20px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .title {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  strong:nth-child(2), strong:nth-child(3) {
+    font-size: 14px;
+  }
+
+  p {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+  }
+}

@@ -1,0 +1,54 @@
+@import "../../index.scss";
+
+
+.NewsContent {
+  strong {
+  }
+
+  p {
+  }
+
+}
+
+.NewsFooter {
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    color: $date-color;
+  }
+
+  a {
+    font-size: 12px;
+    text-decoration: none;
+    color: $date-color;
+  }
+  a:hover {
+    color: $primary-color;
+  }
+}
+
+@mixin imageContainer($width,$height,$padding) {
+  .imageContainer {
+    width: $width;
+    height: $height;
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+}
+
+@media only screen and (min-width: 960px) {
+  @include imageContainer(100%, 174px, 20px);
+}
+
+@media only screen and (max-width: 960px) {
+  @include imageContainer(100%, 100%, 0);
+  .NewsFooter {
+    margin-bottom: 10px;
+  }
+}

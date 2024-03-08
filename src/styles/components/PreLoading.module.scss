@@ -1,0 +1,52 @@
+@import "../../index.scss";
+
+@keyframes loadingAnimation{
+  0%{
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100%{
+    opacity: 0.2;
+    transform: scale(1);
+  }
+}
+
+.PreContainer {
+  background-color: #f5f9fa;
+  width: 100%;
+  height: 100vh;
+  @include center();
+
+  .loadingTxt {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+
+  .dotContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    .loadingCircle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $primary-color;
+      animation: loadingAnimation 1.4s linear infinite;
+      margin-right: 12px;
+    }
+  }
+
+  .loadingCircle:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .loadingCircle:last-child {
+    animation-delay: 0.4s;
+  }
+  
+}

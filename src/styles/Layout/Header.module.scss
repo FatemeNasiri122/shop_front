@@ -1,0 +1,97 @@
+@import "../../index.scss";
+
+.headerMain {
+  text-transform: uppercase;
+  padding: 24px 0;
+  
+  .nav {
+    ul {
+      display: flex;
+      
+      .navItem {
+        font-weight: 600;
+        margin: 0 8px;
+      }
+      li {
+        list-style-type: none;
+      }
+    }
+  }
+
+  .content {
+    max-width: 1536px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;      
+      
+    .profileSec {
+      display: flex;
+      font-weight: 600;
+      svg {
+        margin-left: 16px;
+      }
+    }
+  }
+
+}
+
+.mobileNav {
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .hamburgerButton, .mobileMenu {
+    display: none;
+  }
+  .logo {
+    margin-left: 4rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .mobileNav {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .headerMain {
+    padding: 12px;
+    .contactSearchSec {
+      display: none !important;
+    }
+
+    .profileSec {
+      display: none !important;
+    }
+
+    .nav {
+      display: none;
+    }
+
+    .topsec {
+      justify-content: center !important;
+      width: 100% !important;
+    }
+
+    .hamburgerButton {
+      border: none;
+      outline: none;
+      background-color: transparent;
+    }
+
+    .mobileMenu {
+      .mobileMenuWrapper {
+        min-height: 80vh;
+      }
+
+      li {
+        padding: 1rem;
+        border-bottom: 1px solid $strike-color;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
