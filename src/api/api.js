@@ -35,7 +35,7 @@ api.interceptors.response.use(
       pathname !== ('/signin-or-register' || '/')
     ) {
       // window.location.href = 'https://shop-front-1.onrender.com/signin-or-register';
-      window.location.href = 'https://shop-front-1.onrender.com';
+      // window.location.href = 'https://shop-front-1.onrender.com';
     }
     return Promise.reject(error);
   }
