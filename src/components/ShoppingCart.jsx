@@ -49,8 +49,8 @@ const ShoppingCart = ({ data }) => {
         >
           <AddToCart
             product={data.product}
-            color={data.selectedColor}
-            size={data.selectedSize}
+            color={"existed"}
+            size={"existed"}
             setIsAlreadyAdded={setIsAlreadyAdded}
           />
         </Grid>

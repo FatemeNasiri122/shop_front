@@ -19,7 +19,7 @@ import { Breadcrumbs, FormControl, InputLabel } from '@mui/material';
 
 const Product = () => {
   const { user } = useSelector((state) => state.user);
-  const [selectColor, setSelectColor] = useState('please select color');
+  const [selectColor, setSelectColor] = useState('loading...');
   const [selectSize, setSelectSize] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
@@ -36,15 +36,16 @@ const Product = () => {
           setIsAlreadyAdded(true);
         }
       });
-      setLoadingCart(false);
+
     }
   });
-
   useMemo(() => {
-    setSelectColor(data?.colors[0]);
-    setSelectSize(data?.size[0]);
-  }, [isSuccess]);
-
+    if (isSuccess) {
+      setLoadingCart(false);
+      setSelectColor(data?.colors[0].color);
+      setSelectSize(data?.size[0]);
+    }
+  },[isSuccess])
   const moveToSelectedImage = (selected) => {
     const selectedImage = document.querySelector(`#item-${selected}`);
     selectedImage.scrollIntoView();
@@ -101,16 +102,16 @@ const Product = () => {
           </div>
           <div className={classes.colorContainer}>
             <p>
-              <strong>color</strong>
-              <span> : {selectColor}</span>
+              <strong>color : </strong>
+              <span> {selectColor}</span>
             </p>
             <div className={classes.circleContainer}>
               {data?.colors?.map((color) =>
                 color === 'blackAndWhite' ? (
                   <button
-                    key={color}
+                    key={color.code}
                     onClick={() => setSelectColor(color)}
-                    className={color === selectColor ? classes.selectedCircle : classes.circle}
+                    className={color.color === selectColor ? classes.selectedCircle : classes.circle}
                     style={{
                       background:
                         'linear-gradient(to right,white 0%,white 50%, black 50%,black 100%)'
@@ -120,8 +121,8 @@ const Product = () => {
                   <button
                     key={color}
                     onClick={() => setSelectColor(color)}
-                    className={color === selectColor ? classes.selectedCircle : classes.circle}
-                    style={{ backgroundColor: color }}
+                    className={color.color === selectColor ? classes.selectedCircle : classes.circle}
+                    style={{ backgroundColor: color.code }}
                   ></button>
                 )
               )}

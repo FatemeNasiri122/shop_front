@@ -25,8 +25,8 @@ export const deleteAddress = async (data) => {
   return response;
 };
 
-export const addToCart = async (url, product, color, size) => {
-  const response = await api.post(`/${url}`, { product, selectedColor: color, selectedSize: size });
+export const addToCart = async (url, product, color, size,plusClicked) => {
+  const response = await api.post(`/${url}`, { product, selectedColor: color, selectedSize: size ,plusClicked});
   console.log(response);
   return response;
 };
