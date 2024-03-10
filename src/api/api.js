@@ -34,7 +34,7 @@ api.interceptors.response.use(
       error?.response?.data.message === 'jwt expired' &&
       pathname !== ('/signin-or-register' || '/')
     ) {
-      // window.location.href = 'http://localhost:5173/signin-or-register';
+      window.location.href = 'http://localhost:5173/signin-or-register';
     }
     return Promise.reject(error);
   }
