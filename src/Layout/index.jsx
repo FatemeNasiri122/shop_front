@@ -22,6 +22,7 @@ const Layout = () => {
     refetchOnWindowFocus: false,
     queryFn: async () => verfiyToken(),
     onSuccess: (response) => {
+      // debugger
       console.log(response);
       dispatch(loginUser(response.user));
     },

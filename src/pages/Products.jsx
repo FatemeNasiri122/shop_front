@@ -318,15 +318,17 @@ const Products = () => {
               )
             )}
           </div>
-          <Button
-            sx={{ whiteSpace: 'nowrap', alignSelf: 'start', margin: '8px' }}
-            variant="contained"
-            color="error"
-            endIcon={<CloseIcon />}
-            onClick={() => dispatch({ type: 'clear', id: 0, name: '' })}
-          >
-            clear all
-          </Button>
+          <div>
+            <Button
+              sx={{ fontSize: "10px", padding:"8px",whiteSpace: 'nowrap', marginRight: "8px" }}
+              variant="contained"
+              color="error"
+              endIcon={<CloseIcon sx={{width: "16px", height: "16px"}} />}
+              onClick={() => dispatch({ type: 'clear', id: 0, name: '' })}
+            >
+              clear all
+            </Button>
+          </div>
         </div>
       )}
       {data?.products?.length !== 0 ? (

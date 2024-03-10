@@ -4,11 +4,14 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { openSnackbar } from '../app/features/snackbar/snackSlice';
 import { addOrder } from '../api/order';
+import Loading from './Loading';
+import { useNavigate } from 'react-router-dom';
 
 export default function CartCheckout({ selectedAddress }) {
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
+  const nav = useNavigate();
 
   const { mutateAsync, isLoading } = useMutation({
     mutationFn: async () => addOrder(selectedAddress),
@@ -20,6 +23,7 @@ export default function CartCheckout({ selectedAddress }) {
       console.log(response);
       dispatch(openSnackbar({ message: response?.data?.message, type: 'success' }));
       queryClient.invalidateQueries({ queryKey: ['verify-user'] });
+      nav("/account-details")
     }
   });
   const handleOrder = async () => {
@@ -28,6 +32,7 @@ export default function CartCheckout({ selectedAddress }) {
 
   return (
     <>
+      <Loading isLoading={isLoading}/>
       <div className={classes.checkoutContainer}>
         <Grid container>
           <Grid item xs={12} sm={6} margin="auto">

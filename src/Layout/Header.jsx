@@ -18,9 +18,8 @@ const Header = () => {
   useEffect(() => { 
     if (user.cart) {
       let counts = user.cart.items.reduce((accumulator, item) => accumulator + item.count, 0);
-    setCartItems(counts);
+      setCartItems(counts);
     }
-    
   }, [user]);
   const closeMenu = (url) => {
     nav(url);
@@ -80,10 +79,10 @@ const Header = () => {
             >
               <LunchDiningIcon />
             </button>
-            <span>
+            <span className={HeaderClass.center}>
               {isLoggedIn ? (
                 <Link to="/account-details">
-                  <PersonOutlineOutlinedIcon />
+                  <PersonOutlineOutlinedIcon sx={{marginTop: "4px"}} />
                 </Link>
               ) : (
                 <Link to="/signin-or-register">register / sign in </Link>
@@ -104,11 +103,6 @@ const Header = () => {
                 <li onClick={() => closeMenu('/products/women')}>women</li>
                 <li onClick={() => closeMenu('/products/sneakers')}>sneakers</li>
                 <li onClick={() => closeMenu('/products/bags')}>bags</li>
-                {isLoggedIn && <li onClick={() => closeMenu('/account-details')}>account</li>}
-                {isLoggedIn && <li onClick={() => closeMenu('/cart')}>shopping cart</li>}
-                {!isLoggedIn && (
-                  <li onClick={() => closeMenu('/signin-or-register')}>signin or register</li>
-                )}
               </ul>
             </Collapse>
           </div>

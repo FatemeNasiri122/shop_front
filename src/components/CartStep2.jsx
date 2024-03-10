@@ -3,7 +3,6 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 import { useSelector } from 'react-redux';
 import { Button, Grid } from '@mui/material';
 import classes from '../styles/components/Cart.module.scss';
@@ -38,13 +37,15 @@ const CartStep2 = ({ setSelectedAddress, selectedAddress }) => {
 
       <p className={classes.addressTitle}>َPlease choose your address</p>
       {user.address.items.length === 0 ? (
-        <div className={classes.noAddress}>
-          <p>no address found</p>
+        <div className={classes.center}>
+          <div>
+          <p className={classes.noAddress}>no address found</p>
           <Link to="/account-details">
             <Button variant="contained" startIcon={<Add />}>
               add address
             </Button>
           </Link>
+          </div>
         </div>
       ) : (
         <div className={classes.addressContainer}>

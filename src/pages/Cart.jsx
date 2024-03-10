@@ -5,16 +5,19 @@ import { useState } from 'react';
 import CartStep1 from '../components/CartStep1';
 import CartStep2 from '../components/CartStep2';
 import CartCheckout from '../components/CartCheckout';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import EmptyState from '../components/EmptyState';
 import Grid from '@mui/material/Grid';
 import { Breadcrumbs } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { openSnackbar } from '../app/features/snackbar/snackSlice';
 
 const Cart = () => {
   const { user } = useSelector((state) => state.user);
   const [steps, setSteps] = useState(0);
   const [selectedAddress, setSelectedAddress] = useState({});
+  const dispatch = useDispatch();
+
   console.log(selectedAddress);
   const changeStep = () => {
     if (steps === 0) {
@@ -24,7 +27,7 @@ const Cart = () => {
     if (steps === 1 && Object.keys(selectedAddress).length !== 0) {
       setSteps(2);
     } else {
-      alert('please select address');
+      dispatch(openSnackbar({type: "error", message: "please select address"}))    
     }
   };
 

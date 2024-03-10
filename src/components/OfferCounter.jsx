@@ -9,7 +9,6 @@ const OfferCounter = () => {
 
   const stopTimer = () => {
     if (intervalRef.current) {
-      debugger;
       clearInterval(intervalRef.current);
     }
   };
@@ -49,7 +48,6 @@ const OfferCounter = () => {
   useEffect(() => {
     timer();
     return () => {
-      debugger;
       stopTimer();
     };
   }, []);

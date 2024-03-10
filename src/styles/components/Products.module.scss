@@ -15,6 +15,8 @@
 
 .clear {
   @include top-container;
+  display: flex ;
+  justify-content: space-between;
   background-color: $select-background;
   height: auto;
   border-radius: 4px;

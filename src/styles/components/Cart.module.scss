@@ -3,6 +3,7 @@
 .registerContainer {
   width: 50%;
   margin: auto;
+  overflow: hidden;
 }
 .summaryContainer {
   background-color: $final-color;
@@ -48,11 +49,7 @@
 }
 
 .noAddress {
-  margin: auto;
-  p {
-    margin-bottom: 16px;
-    text-align: center;
-  }
+  margin: 16px 0;
 }
 
 .addressTitle {
