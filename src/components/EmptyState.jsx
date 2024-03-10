@@ -1,4 +1,4 @@
-import emptyStateImage from '../assets/img/no-data.svg';
+import emptyStateImage from '/assets/img/no-data.svg';
 import Class from '../styles/components/EmptyState.module.scss';
 
 const EmptyState = ({ data }) => {

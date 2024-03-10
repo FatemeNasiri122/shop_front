@@ -1,7 +1,7 @@
-import men from '../assets/img/man-svgrepo-com.svg';
-import women from '../assets/img/woman-with-skirt-svgrepo-com.svg';
-import sneakers from '../assets/img/sneakers-sneaker-svgrepo-com.svg';
-import shoes from '../assets/img/shoes-14-svgrepo-com.svg';
+import men from '/assets/img/man-svgrepo-com.svg';
+import women from '/assets/img/woman-with-skirt-svgrepo-com.svg';
+import sneakers from '/assets/img/sneakers-sneaker-svgrepo-com.svg';
+import shoes from '/assets/img/shoes-14-svgrepo-com.svg';
 import classes from '../styles/components/ProductCategories.module.scss';
 import { Link } from 'react-router-dom';
 

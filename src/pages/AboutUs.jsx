@@ -2,7 +2,7 @@ import classes from '../styles/components/aboutus.module.scss';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Breadcrumbs } from '@mui/material';
-import aboutus from '../assets/img/aboutus.png';
+import aboutus from '/assets/img/aboutus.png';
 import { Link } from 'react-router-dom';
 
 const contentVariants = {
