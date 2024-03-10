@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { SwiperSlide } from 'swiper/react';
 import SwiperContainer from './SwiperContainer';
 import OfferCounter from './OfferCounter';
+import LoadingState from './LoadingState';
 
 const SpecialOffer = () => {
   const { data, isLoading, isError } = useQuery({
@@ -12,11 +13,9 @@ const SpecialOffer = () => {
   });
 
   if (isLoading) {
-    return <span>loading...</span>;
+    return <LoadingState />;
   }
-  if (isError) {
-    return <span>error</span>;
-  }
+  
   return (
     <>
       <div className="offer-header">

@@ -29,7 +29,7 @@ const NewsViewMore = () => {
         <Link to="/news" className='breadCrumLink'>News</Link>
         <span className='breadCrumText'>{data?.title}</span>
       </Breadcrumbs>
-      <div className={classes.widerContainer}>
+      <div className={classes.newsContainer}>
         <h1 className={classes.title}>{data?.title}</h1>
         <Grid container>
           <Grid item xs={12}>
@@ -43,7 +43,7 @@ const NewsViewMore = () => {
           <Grid item xs={12}>
             <div className={classes.tagsContainer}>
               <div className={classes.tagActive}>KEYWORDS</div>
-              <div className={classes.tag}>{data?.keywords}</div>
+              {data?.keywords.map((keyword) => <div key={keyword} className={classes.tag}>{keyword}</div>)}
             </div>
           </Grid>
           <Grid item xs={12}>

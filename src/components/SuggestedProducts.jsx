@@ -5,6 +5,7 @@ import { getSuggestedProducts } from '../api/product';
 import { useQuery } from '@tanstack/react-query';
 import { SwiperSlide } from 'swiper/react';
 import SwiperContainer from './SwiperContainer';
+import LoadingState from './LoadingState';
 
 const SuggestedProducts = () => {
   const { data, isLoading, isError } = useQuery({
@@ -12,11 +13,9 @@ const SuggestedProducts = () => {
     queryFn: async () => getSuggestedProducts()
   });
   if (isLoading) {
-    return <span>loading...</span>;
+    return <LoadingState />;
   }
-  if (isError) {
-    return <span>error</span>;
-  }
+
   return (
     <>
       <h1 className="title">suggested products</h1>

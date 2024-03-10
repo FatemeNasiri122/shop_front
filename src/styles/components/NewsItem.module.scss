@@ -1,19 +1,22 @@
 @import "../../index.scss";
 
+.newsItemContainer {
+  display: flex;
+  @include cart-border();
+  padding: 8px;
+  margin: 5px 0;
+}
 
-.NewsContent {
-  strong {
-  }
-
-  p {
-  }
-
+.newsContent {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .NewsFooter {
   display: flex;
   justify-content: space-between;
-
   span {
     color: $date-color;
   }
@@ -32,7 +35,6 @@
   .imageContainer {
     width: $width;
     height: $height;
-    margin-bottom: 20px;
 
     img {
       width: 100%;
@@ -47,8 +49,14 @@
 }
 
 @media only screen and (max-width: 960px) {
-  @include imageContainer(100%, 100%, 0);
+  @include imageContainer(100%, 200px, 0);
+  .newsItemContainer {
+    flex-direction: column;
+  }
   .NewsFooter {
     margin-bottom: 10px;
+  }
+  .newsContent {
+    margin-left: 0;
   }
 }

@@ -2,9 +2,9 @@ import classes from '../styles/components/Products.module.scss';
 import Grid from '@mui/material/Grid';
 import CloseIcon from '@mui/icons-material/Close';
 import Product from '../components/Product';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -143,29 +143,13 @@ const reducer = (state, action) => {
 const Products = () => {
   const [selects, dispatch] = useReducer(reducer, initialSelect);
   const { filterItems, selectedItems, category, sortby } = selects;
-  const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const { type } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const { isLoading, isError, data } = useQuery({
     queryKey: ['products', selects, page, type],
     queryFn: async () => getProducts(type, page, selectedItems, category, sortby)
   });
-
-  const addFilter = (type, id, name, checked, selectType) => {
-    dispatch({
-      type,
-      id,
-      name,
-      checked,
-      selectType
-    });
-  };
-
-  useMemo(() => {
-    setSearchParams(selectedItems.join(''));
-  }, [type, page, selectedItems, category, sortby]);
 
   const closeFilter = (select, item) => {
     if (select.type === 'sortby' || select.type === 'category') {

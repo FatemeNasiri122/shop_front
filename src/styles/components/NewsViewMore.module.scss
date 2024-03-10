@@ -1,5 +1,9 @@
 @import "../../index.scss";
 
+.newsContainer {
+  padding: 0px 50px;
+
+}
 .linkContainer {
   display: flex;
   flex-wrap: wrap;
@@ -34,7 +38,7 @@
 .menImageContainer {
   padding-top: 22px;
   padding-bottom: 20px;
-  width: 90%;
+  width: 100%;
   height: 400px;
   margin: auto;
 
@@ -72,3 +76,8 @@
   }
 }
 
+@media (max-width: 600px) {
+  .newsContainer {
+  padding: 0px 50px;
+}
+}

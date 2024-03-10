@@ -151,7 +151,7 @@ const ContactUs = () => {
               />
               <p className={classes.error}>{errors?.message?.message}</p>
             </Grid>
-            <Grid item xs={3} margin="auto">
+            <Grid item xs={6} md={4} margin="auto">
               <button type="submit" className={classes.btn}>
                 send
               </button>

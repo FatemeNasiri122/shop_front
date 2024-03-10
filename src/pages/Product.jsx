@@ -158,7 +158,7 @@ const Product = () => {
                 item={null}
               />
             ) : (
-              'empty'
+              <span className={classes.soldOut}>This product is sold out</span>
             )}
             <p className={classes.error}>{errorMsg}</p>
           </div>

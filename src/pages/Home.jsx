@@ -4,7 +4,6 @@ import SuggestedProducts from '../components/SuggestedProducts';
 import CartContainer from '../components/CartContainer';
 import SpecialOffer from '../components/SpecialOffer';
 import ProductCategories from '../components/ProductCategories';
-import PreLoading from '../components/PreLoading';
 
 const Home = () => {
   return (
@@ -14,7 +13,6 @@ const Home = () => {
           <h1>welcome to our website</h1>
         </div>
       </div>
-      {/* <PreLoading /> */}
       <ProductCategories />
       <SuggestedProducts />
       <CartContainer />
