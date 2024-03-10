@@ -34,6 +34,7 @@ api.interceptors.response.use(
       error?.response?.data.message === 'jwt expired' &&
       pathname !== ('/signin-or-register' || '/')
     ) {
+      // window.location.href = 'https://shop-front-1.onrender.com/signin-or-register';
       window.location.href = 'https://shop-front-1.onrender.com/signin-or-register';
     }
     return Promise.reject(error);
