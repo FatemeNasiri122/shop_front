@@ -1,7 +1,7 @@
 import React from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import { useQuery } from '@tanstack/react-query';
@@ -16,7 +16,7 @@ import PreLoading from '../components/PreLoading';
 const Layout = () => {
   const { showSnackbar, message, type } = useSelector((state) => state.snack);
   const dispatch = useDispatch();
-
+  const nav = useNavigate();
   const { isLoading } = useQuery({
     queryKey: ['verify-user'],
     refetchOnWindowFocus: false,
@@ -28,6 +28,9 @@ const Layout = () => {
     },
     onError: (error) => {
       console.log(error);
+      if (error.response.data.message === "jwt expired") {
+        nav("/signin-or-register")
+      }
     }
   });
 
