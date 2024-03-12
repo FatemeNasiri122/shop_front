@@ -14,7 +14,7 @@ const Footer = () => {
         <div className={FooterClass.content}>
           <div className={FooterClass.socialMedia}>
             <Link
-              to="https://t.me/FatemeNasiri78"
+              to="https://t.me/FatemeNasiri78/"
               className={FooterClass.iconCircle}
               target="_blank"
               rel="noopener noreferrer"
