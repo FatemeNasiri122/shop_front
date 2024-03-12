@@ -24,19 +24,19 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (response) => {
+    console.log(response);
     return response;
   },
   (error) => {
     console.log(error);
-    console.log(window.location.pathname);
     const { pathname } = window.location;
-    if (
-      error?.response?.data.message === 'jwt expired' &&
-      pathname !== ('/signin-or-register' || '/')
-    ) {
+    // if (
+    //   error?.response?.data?.message === 'jwt expired' &&
+    //   pathname !== ('/signin-or-register' || '/')
+    // ) {
       // window.location.href = 'https://shop-front-1.onrender.com/signin-or-register';
       // window.location.href = 'https://shop-front-1.onrender.com';
-    }
+    // }
     return Promise.reject(error);
   }
 );

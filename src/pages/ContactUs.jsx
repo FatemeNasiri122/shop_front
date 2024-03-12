@@ -1,7 +1,8 @@
 import classes from '../styles/components/ContactUS.module.scss';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { openSnackbar } from '../app/features/snackbar/snackSlice';
@@ -11,7 +12,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { contactUs } from '../api/contactUs';
 import { Breadcrumbs } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 const ContactUs = () => {
   const dispatch = useDispatch();
@@ -26,22 +26,21 @@ const ContactUs = () => {
   const { mutateAsync, isLoading } = useMutation({
     mutationFn: async (data) => contactUs(data),
     onError: (error) => {
-      dispatch(openSnackbar({ message: error?.response?.data?.message, type: 'error' }));
+      dispatch(
+        openSnackbar({
+          message: error?.response?.data?.message || 'something went wrong please try again',
+          type: 'error'
+        })
+      );
     },
     onSuccess: (response) => {
       dispatch(openSnackbar({ message: response?.data?.message, type: 'success' }));
       reset();
     }
-
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
-    try {
-      await mutateAsync(data);
-    } catch (e) {
-      console.log(e);
-    }
+    await mutateAsync(data);
   };
 
   return (
@@ -50,8 +49,10 @@ const ContactUs = () => {
         <CircularProgress color="inherit" />
       </Backdrop>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link to="/" className='breadCrumLink'>Home</Link>
-        <span className='breadCrumText'>Contact us</span>
+        <Link to="/" className="breadCrumLink">
+          Home
+        </Link>
+        <span className="breadCrumText">Contact us</span>
       </Breadcrumbs>
       <div className={classes.writeUsContainer}>
         <div className={classes.writeUS}>

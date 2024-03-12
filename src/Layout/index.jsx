@@ -8,10 +8,10 @@ import { useQuery } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../app/features/user/userSlice';
 import { closeSnackbar } from '../app/features/snackbar/snackSlice';
-import LoadingState from '../components/LoadingState';
+import LoadingState from '../components/helper/LoadingState.jsx';
 import { verfiyToken } from '../api/auth';
-import ScrollToTop from '../components/ScrollToTop';
-import PreLoading from '../components/PreLoading';
+import ScrollToTop from '../components/helper/ScrollToTop.jsx';
+import PreLoading from '../components/helper/PreLoading.jsx';
 
 const Layout = () => {
   const { showSnackbar, message, type } = useSelector((state) => state.snack);
@@ -22,14 +22,11 @@ const Layout = () => {
     refetchOnWindowFocus: false,
     queryFn: async () => verfiyToken(),
     onSuccess: (response) => {
-      // debugger
-      console.log(response);
       dispatch(loginUser(response.user));
     },
     onError: (error) => {
-      console.log(error);
-      if (error.response.data.message === "jwt expired") {
-        nav("/signin-or-register")
+      if (error?.response?.data?.message === 'jwt expired') {
+        nav('/signin-or-register');
       }
     }
   });

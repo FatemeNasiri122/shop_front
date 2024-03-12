@@ -1,24 +1,22 @@
 import classes from '../styles/components/Cart.module.scss';
-import TopCart from '../components/TopCart';
+import TopCart from '../components/cart/TopCart.jsx';
 import React from 'react';
 import { useState } from 'react';
-import CartStep1 from '../components/CartStep1';
-import CartStep2 from '../components/CartStep2';
-import CartCheckout from '../components/CartCheckout';
 import { useDispatch, useSelector } from 'react-redux';
-import EmptyState from '../components/EmptyState';
 import Grid from '@mui/material/Grid';
 import { Breadcrumbs } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { openSnackbar } from '../app/features/snackbar/snackSlice';
-
+import CartStep1 from '../components/cart/CartStep1.jsx';
+import CartStep2 from '../components/cart/CartStep2.jsx';
+import CartCheckout from '../components/cart/CartCheckout.jsx';
+import EmptyState from '../components/helper/EmptyState.jsx';
 const Cart = () => {
   const { user } = useSelector((state) => state.user);
   const [steps, setSteps] = useState(0);
   const [selectedAddress, setSelectedAddress] = useState({});
   const dispatch = useDispatch();
 
-  console.log(selectedAddress);
   const changeStep = () => {
     if (steps === 0) {
       setSteps(1);
@@ -27,15 +25,17 @@ const Cart = () => {
     if (steps === 1 && Object.keys(selectedAddress).length !== 0) {
       setSteps(2);
     } else {
-      dispatch(openSnackbar({type: "error", message: "please select address"}))    
+      dispatch(openSnackbar({ type: 'error', message: 'please select address' }));
     }
   };
 
   return (
     <>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link to="/" className='breadCrumLink'>Home</Link>
-        <span className='breadCrumText'>Cart</span>
+        <Link to="/" className="breadCrumLink">
+          Home
+        </Link>
+        <span className="breadCrumText">Cart</span>
       </Breadcrumbs>
       {user.cart.items.length > 0 ? (
         <>

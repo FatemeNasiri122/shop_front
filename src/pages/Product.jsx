@@ -1,21 +1,21 @@
 import classes from '../styles/components/Buy.module.scss';
+import { useMemo, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import { useMemo, useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Collapse from '@mui/material/Collapse';
-import BuySlider from '../components/BuySlider';
 import { useQuery } from '@tanstack/react-query';
-import { Link, useParams } from 'react-router-dom';
-import AddToFavorite from '../components/AddToFavorite';
-import AddToCart from '../components/AddToCart';
-import LoadingState from '../components/LoadingState';
-import EmptyState from '../components/EmptyState';
-import { useSelector } from 'react-redux';
 import { getProduct } from '../api/product';
+import { Link, useParams } from 'react-router-dom';
 import { Breadcrumbs, FormControl, InputLabel } from '@mui/material';
+import { useSelector } from 'react-redux';
+import BuySlider from '../components/product/BuySlider.jsx';
+import AddToFavorite from '../components/product/AddToFavorite.jsx';
+import AddToCart from '../components/cart/AddToCart.jsx';
+import LoadingState from '../components/helper/LoadingState.jsx';
+import EmptyState from '../components/helper/EmptyState.jsx';
 
 const Product = () => {
   const { user } = useSelector((state) => state.user);
@@ -36,33 +36,39 @@ const Product = () => {
           setIsAlreadyAdded(true);
         }
       });
-
     }
   });
+
   useMemo(() => {
     if (isSuccess) {
       setLoadingCart(false);
       setSelectColor(data?.colors[0].color);
       setSelectSize(data?.size[0]);
     }
-  },[isSuccess])
+  }, [isSuccess]);
   const moveToSelectedImage = (selected) => {
     const selectedImage = document.querySelector(`#item-${selected}`);
     selectedImage.scrollIntoView();
   };
-  console.log(isAlreadyAdded);
+
   if (isLoading) {
     return <LoadingState />;
   }
+
   if (isError) {
     return <EmptyState data="product" />;
   }
+
   return (
     <>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link to="/" className='breadCrumLink'>Home</Link>
-        <Link to={`/products/${data?.type}`} className='breadCrumLink'>{data?.type}</Link>
-        <span className='breadCrumText'>{data?.name}</span>
+        <Link to="/" className="breadCrumLink">
+          Home
+        </Link>
+        <Link to={`/products/${data?.type}`} className="breadCrumLink">
+          {data?.type}
+        </Link>
+        <span className="breadCrumText">{data?.name}</span>
       </Breadcrumbs>
       <Grid container marginTop="20px">
         <Grid item lg={1} sx={{ display: { xs: 'none', lg: 'block' } }}>
@@ -111,7 +117,9 @@ const Product = () => {
                   <button
                     key={color.code}
                     onClick={() => setSelectColor(color)}
-                    className={color.color === selectColor ? classes.selectedCircle : classes.circle}
+                    className={
+                      color.color === selectColor ? classes.selectedCircle : classes.circle
+                    }
                     style={{
                       background:
                         'linear-gradient(to right,white 0%,white 50%, black 50%,black 100%)'
@@ -121,7 +129,9 @@ const Product = () => {
                   <button
                     key={color}
                     onClick={() => setSelectColor(color)}
-                    className={color.color === selectColor ? classes.selectedCircle : classes.circle}
+                    className={
+                      color.color === selectColor ? classes.selectedCircle : classes.circle
+                    }
                     style={{ backgroundColor: color.code }}
                   ></button>
                 )

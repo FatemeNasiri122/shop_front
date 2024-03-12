@@ -1,9 +1,8 @@
 import React from 'react';
-import notFound from '/assets/img/not_found.svg';
 import { useNavigate } from 'react-router-dom';
 import LinkIcon from '@mui/icons-material/Link';
 import { Button } from '@mui/material';
-
+import notFound from '/assets/img/not_found.svg';
 const NotFound = () => {
   const nav = useNavigate();
 

@@ -1,1 +1,0 @@
-import{a as s}from"./api--0IjzKCk.js";const g=async t=>{const o=await s(`/get-product/${t}`);return console.log(o),o.data.product},d=async(t,o,a,c,n)=>{const e=await s(`/get-products/${t}/?page=${o}${a.join("")}${c}${n}`);return console.log(e),e.data},u=async()=>{const t=await s("get-suggested-product");return console.log(t),t.data};export{d as a,g as b,u as g};

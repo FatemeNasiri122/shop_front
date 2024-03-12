@@ -1,13 +1,12 @@
-import NewsItem from '../components/NewsItem';
-import Pagination from '@mui/material/Pagination';
+import NewsItem from '../components/news/NewsItem.jsx';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import EmptyState from '../components/EmptyState';
 import { getNews } from '../api/news';
 import { Breadcrumbs } from '@mui/material';
-import LoadingState from '../components/LoadingState';
-import { Link } from 'react-router-dom';
-
+import Pagination from '@mui/material/Pagination';
+import LoadingState from '../components/helper/LoadingState.jsx';
+import EmptyState from '../components/helper/EmptyState.jsx';
 const News = () => {
   const [paginate, setPaginate] = useState(1);
 
@@ -27,8 +26,10 @@ const News = () => {
   return (
     <>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link to="/" className='breadCrumLink'>home</Link>
-        <span className='breadCrumText'>News </span>
+        <Link to="/" className="breadCrumLink">
+          home
+        </Link>
+        <span className="breadCrumText">News </span>
       </Breadcrumbs>
       {data.news.length === 0 ? (
         <EmptyState data="news" />

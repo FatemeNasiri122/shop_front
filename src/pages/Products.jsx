@@ -1,20 +1,20 @@
 import classes from '../styles/components/Products.module.scss';
+import { useReducer } from 'react';
+import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import CloseIcon from '@mui/icons-material/Close';
-import Product from '../components/Product';
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { Link, useParams } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Button from '@mui/material/Button';
-import { useReducer } from 'react';
-import EmptyState from '../components/EmptyState';
-import LoadingState from '../components/LoadingState';
-import { getProducts } from '../api/product';
 import { Breadcrumbs, FormControl, InputLabel, Select } from '@mui/material';
+import Button from '@mui/material/Button';
+import { useQuery } from '@tanstack/react-query';
+import { getProducts } from '../api/product';
+import EmptyState from '../components/helper/EmptyState.jsx';
+import LoadingState from '../components/helper/LoadingState.jsx';
+import Product from '../components/product/Product.jsx';
 
 const initialSelect = {
   filterItems: [
@@ -180,8 +180,10 @@ const Products = () => {
   return (
     <>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link to="/" className='breadCrumLink'>home</Link>
-        <span className='breadCrumText'>{type}</span>
+        <Link to="/" className="breadCrumLink">
+          home
+        </Link>
+        <span className="breadCrumText">{type}</span>
       </Breadcrumbs>
       <div className={classes.category}>
         <div className={classes.selectsContainer}>
@@ -194,7 +196,6 @@ const Products = () => {
                     control={<Checkbox checked={category.checked} />}
                     label={category.name}
                     onChange={(e) => {
-                      console.log(e.target.checked);
                       dispatch({
                         type: 'category',
                         id: 1,
@@ -202,7 +203,6 @@ const Products = () => {
                         checked: e.target.checked,
                         selectType: 'category'
                       });
-                      
                     }}
                   />
                 </FormGroup>
@@ -225,7 +225,6 @@ const Products = () => {
                         checked: e.target.checked,
                         selectType: 'color'
                       });
-                      
                     }}
                   />
                 </FormGroup>
@@ -248,7 +247,6 @@ const Products = () => {
                         checked: e.target.checked,
                         selectType: 'size'
                       });
-                      
                     }}
                   />
                 </FormGroup>
@@ -271,7 +269,6 @@ const Products = () => {
                         checked: e.target.checked,
                         selectType: 'sortby'
                       });
-                      
                     }}
                   />
                 </FormGroup>
@@ -304,10 +301,10 @@ const Products = () => {
           </div>
           <div>
             <Button
-              sx={{ fontSize: "10px", padding:"8px",whiteSpace: 'nowrap', marginRight: "8px" }}
+              sx={{ fontSize: '10px', padding: '8px', whiteSpace: 'nowrap', marginRight: '8px' }}
               variant="contained"
               color="error"
-              endIcon={<CloseIcon sx={{width: "16px", height: "16px"}} />}
+              endIcon={<CloseIcon sx={{ width: '16px', height: '16px' }} />}
               onClick={() => dispatch({ type: 'clear', id: 0, name: '' })}
             >
               clear all

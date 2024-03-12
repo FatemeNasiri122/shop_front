@@ -15,7 +15,7 @@ const Header = () => {
   const nav = useNavigate();
   const [checked, setChecked] = useState(false);
   const [cartItems, setCartItems] = useState(0);
-  useEffect(() => { 
+  useEffect(() => {
     if (user.cart) {
       let counts = user.cart.items.reduce((accumulator, item) => accumulator + item.count, 0);
       setCartItems(counts);
@@ -82,7 +82,7 @@ const Header = () => {
             <span className={HeaderClass.center}>
               {isLoggedIn ? (
                 <Link to="/account-details">
-                  <PersonOutlineOutlinedIcon sx={{marginTop: "4px"}} />
+                  <PersonOutlineOutlinedIcon sx={{ marginTop: '4px' }} />
                 </Link>
               ) : (
                 <Link to="/signin-or-register">register / sign in </Link>
@@ -90,7 +90,7 @@ const Header = () => {
               {isLoggedIn && (
                 <Link to="/cart">
                   <Badge badgeContent={cartItems} color="primary">
-                    <ShoppingCartOutlinedIcon sx={{ml: 2}} />
+                    <ShoppingCartOutlinedIcon sx={{ ml: 2 }} />
                   </Badge>
                 </Link>
               )}

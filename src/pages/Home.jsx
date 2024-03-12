@@ -1,9 +1,9 @@
 import React from 'react';
 import HomeClass from '../styles/components/Home.module.scss';
-import SuggestedProducts from '../components/SuggestedProducts';
-import CartContainer from '../components/CartContainer';
-import SpecialOffer from '../components/SpecialOffer';
-import ProductCategories from '../components/ProductCategories';
+import SuggestedProducts from '../components/product/SuggestedProducts.jsx';
+import CartContainer from '../components/cart/CartContainer.jsx';
+import SpecialOffer from '../components/product/SpecialOffer.jsx';
+import ProductCategories from '../components/product/ProductCategories.jsx';
 
 const Home = () => {
   return (

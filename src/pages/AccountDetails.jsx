@@ -1,13 +1,13 @@
 import classes from '../styles/components/AccountTitles.module.scss';
-import Grid from '@mui/material/Grid';
 import React, { useState } from 'react';
-import AccountDetailsForm from '../components/AccountDetailsForm';
-import OrdersListContainer from '../components/OrdersListContainer';
-import FavoriteAccount from '../components/FavoriteProduct';
-import AccountAddress from '../components/AccountAddress';
-import ChangePassword from '../components/ChangePassword';
-import { Breadcrumbs } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
+import { Breadcrumbs } from '@mui/material';
+import AccountDetailsForm from '../components/account/AccountDetailsForm.jsx';
+import OrdersListContainer from '../components/account/OrdersListContainer.jsx';
+import FavoriteAccount from '../components/account/FavoriteProduct.jsx';
+import AccountAddress from '../components/account/AccountAddress.jsx';
+import ChangePassword from '../components/account/ChangePassword.jsx';
 
 const AccountDetails = () => {
   const [active, setActive] = useState(0);
@@ -15,8 +15,10 @@ const AccountDetails = () => {
   return (
     <>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link to="/" className='breadCrumLink'>home</Link>
-        <span className='breadCrumText'>account details</span>
+        <Link to="/" className="breadCrumLink">
+          home
+        </Link>
+        <span className="breadCrumText">account details</span>
       </Breadcrumbs>
       <h1 className={classes.title}>my account</h1>
       <Grid container>

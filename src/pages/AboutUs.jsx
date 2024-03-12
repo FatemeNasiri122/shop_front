@@ -1,9 +1,9 @@
 import classes from '../styles/components/aboutus.module.scss';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Breadcrumbs } from '@mui/material';
 import aboutus from '/assets/img/aboutus.png';
-import { Link } from 'react-router-dom';
 
 const contentVariants = {
   offscreen: {
@@ -39,8 +39,10 @@ const AboutUS = () => {
   return (
     <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, amount: 0.8 }}>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link to="/" className='breadCrumLink'>Home</Link>
-        <span className='breadCrumText'>about </span>
+        <Link to="/" className="breadCrumLink">
+          Home
+        </Link>
+        <span className="breadCrumText">about </span>
       </Breadcrumbs>
       <div className={classes.AboutUSContainer}>
         <motion.div variants={titleVariants}>
