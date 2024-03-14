@@ -1,5 +1,5 @@
 import classes from '../styles/components/Buy.module.scss';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
@@ -36,16 +36,12 @@ const Product = () => {
           setIsAlreadyAdded(true);
         }
       });
+      setLoadingCart(false);
+      setSelectColor(data?.colors[0]);
+      setSelectSize(data?.size[0]);
     }
   });
 
-  useMemo(() => {
-    if (isSuccess) {
-      setLoadingCart(false);
-      setSelectColor(data?.colors[0].color);
-      setSelectSize(data?.size[0]);
-    }
-  }, [isSuccess]);
   const moveToSelectedImage = (selected) => {
     const selectedImage = document.querySelector(`#item-${selected}`);
     selectedImage.scrollIntoView();
@@ -109,7 +105,7 @@ const Product = () => {
           <div className={classes.colorContainer}>
             <p>
               <strong>color : </strong>
-              <span> {selectColor.color}</span>
+              <span> {selectColor?.color}</span>
             </p>
             <div className={classes.circleContainer}>
               {data?.colors?.map((color) =>
