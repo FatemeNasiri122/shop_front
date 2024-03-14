@@ -9,7 +9,8 @@
     "preview": "vite preview --port 8080",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc.json"
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc.json",
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal public/clothing.svg"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -34,12 +35,14 @@
   "devDependencies": {
     "@types/react": "^18.2.39",
     "@types/react-dom": "^18.2.17",
+    "@vite-pwa/assets-generator": "^0.2.4",
     "@vitejs/plugin-react": "^4.2.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.2.4",
-    "vite": "^5.0.4"
+    "vite": "^5.0.4",
+    "vite-plugin-pwa": "^0.19.3"
   }
 }
