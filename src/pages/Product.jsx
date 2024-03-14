@@ -109,7 +109,7 @@ const Product = () => {
           <div className={classes.colorContainer}>
             <p>
               <strong>color : </strong>
-              <span> {selectColor}</span>
+              <span> {selectColor.color}</span>
             </p>
             <div className={classes.circleContainer}>
               {data?.colors?.map((color) =>
