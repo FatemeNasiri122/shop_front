@@ -1,5 +1,5 @@
 import classes from '../styles/components/Buy.module.scss';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
@@ -19,7 +19,7 @@ import EmptyState from '../components/helper/EmptyState.jsx';
 
 const Product = () => {
   const { user } = useSelector((state) => state.user);
-  const [selectColor, setSelectColor] = useState('loading...');
+  const [selectColor, setSelectColor] = useState({});
   const [selectSize, setSelectSize] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
@@ -36,12 +36,16 @@ const Product = () => {
           setIsAlreadyAdded(true);
         }
       });
+    }
+  });
+
+  useMemo(() => {
+    if (isSuccess) {
       setLoadingCart(false);
       setSelectColor(data?.colors[0]);
       setSelectSize(data?.size[0]);
     }
-  });
-
+  }, [isSuccess]);
   const moveToSelectedImage = (selected) => {
     const selectedImage = document.querySelector(`#item-${selected}`);
     selectedImage.scrollIntoView();
@@ -105,7 +109,7 @@ const Product = () => {
           <div className={classes.colorContainer}>
             <p>
               <strong>color : </strong>
-              <span> {selectColor?.color}</span>
+              <span> {selectColor.color}</span>
             </p>
             <div className={classes.circleContainer}>
               {data?.colors?.map((color) =>
