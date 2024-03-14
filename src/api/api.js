@@ -6,7 +6,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    console.log(config);
+    // console.log(config);
     const token = localStorage.getItem('token');
     if (token) {
       config.headers['token'] = token;
@@ -17,14 +17,14 @@ api.interceptors.request.use(
     return config;
   },
   (error) => {
-    console.log(error);
+    // console.log(error);
     return Promise.reject(error);
   }
 );
 
 api.interceptors.response.use(
   (response) => {
-    console.log(response);
+    // console.log(response);
     return response;
   },
   (error) => {
