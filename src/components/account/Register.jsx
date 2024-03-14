@@ -9,7 +9,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { openSnackbar } from '../../app/features/snackbar/snackSlice.js';
 import { useNavigate } from 'react-router-dom';
@@ -25,6 +25,7 @@ const Register = () => {
   const nav = useNavigate();
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+  const queryClient = useQueryClient();
 
   const {
     register,
@@ -44,6 +45,7 @@ const Register = () => {
       );
     },
     onSuccess: (response) => {
+      
       dispatch(loginUser(response.data.user));
       localStorage.setItem('token', response.data.token);
       const url = localStorage.getItem('backUrl') || '/';
@@ -54,7 +56,7 @@ const Register = () => {
       }
     }
   });
-
+  console.log(typeof localStorage.getItem('backUrl'))
   const onSubmit = async (data) => {
     await mutateAsync(data);
   };
