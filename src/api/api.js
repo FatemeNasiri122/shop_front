@@ -28,7 +28,7 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.log(error);
+    // console.log(error);
     const { pathname } = window.location;
     if (
       error?.response?.data?.message === 'jwt expired' &&
