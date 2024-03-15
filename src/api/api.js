@@ -18,7 +18,8 @@ api.interceptors.request.use(
   },
   (error) => {
     // console.log(error);
-    return Promise.reject(error);
+    throw new Error("error");
+    // return Promise.reject(error);
   }
 );
 
@@ -36,7 +37,8 @@ api.interceptors.response.use(
     ) {
       // window.location.href = 'https://shop-front-1.onrender.com/signin-or-register';
     }
-    return Promise.reject(error);
+    throw new Error("error");
+    // return Promise.reject(error);
   }
 );
 
