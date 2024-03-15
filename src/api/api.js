@@ -18,8 +18,7 @@ api.interceptors.request.use(
   },
   (error) => {
     // console.log(error);
-    throw new Error("error");
-    // return Promise.reject(error);
+    return Promise.reject(error);
   }
 );
 
@@ -29,7 +28,7 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    // console.log(error);
+    console.log(error);
     const { pathname } = window.location;
     if (
       error?.response?.data?.message === 'jwt expired' &&
@@ -37,8 +36,7 @@ api.interceptors.response.use(
     ) {
       // window.location.href = 'https://shop-front-1.onrender.com/signin-or-register';
     }
-    throw new Error("error");
-    // return Promise.reject(error);
+    return Promise.reject(error);
   }
 );
 
