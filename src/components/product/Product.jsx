@@ -8,9 +8,9 @@ const Product = ({ data }) => {
         <img loading="lazy" src={data.image} alt="product" />
         <div className={classes.colorContainer}>
           {data.colors.map((color) =>
-            color.name === 'blackAndWhite' ? (
+            color.color === 'blackAndWhite' ? (
               <span
-                key={color.name}
+                key={color.color}
                 className={classes.circle}
                 style={{
                   background: 'linear-gradient(to right,white 0%,white 50%, black 50%,black 100%)'
@@ -18,7 +18,7 @@ const Product = ({ data }) => {
               ></span>
             ) : (
               <span
-                key={color.name}
+                key={color.color}
                 className={classes.circle}
                 style={{ backgroundColor: color.code }}
               ></span>

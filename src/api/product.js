@@ -13,6 +13,6 @@ export const getProducts = async (type, page, selectedItems, category, sortby) =
 };
 
 export const getSuggestedProducts = async () => {
-  const response = await api(`get-suggested-product`);
+  const response = await api(`/get-suggested-product`);
   return response.data;
 };

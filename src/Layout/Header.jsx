@@ -16,7 +16,7 @@ const Header = () => {
   const [checked, setChecked] = useState(false);
   const [cartItems, setCartItems] = useState(0);
   useEffect(() => {
-    if (user.cart) {
+    if (user?.cart) {
       let counts = user.cart.items.reduce((accumulator, item) => accumulator + item.count, 0);
       setCartItems(counts);
     }
