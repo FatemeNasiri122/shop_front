@@ -10,6 +10,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       display: 'standalone',
+      injectRegister: 'auto',
       manifest: {
         name: 'clothing shop',
         short_name: 'shop',
