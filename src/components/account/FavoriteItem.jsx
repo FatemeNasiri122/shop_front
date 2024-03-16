@@ -62,7 +62,7 @@ const FavoriteItem = ({ data }) => {
             <p>
               <strong>color:</strong>{' '}
               {data.colors.map((color) => (
-                <span key={color}>{color?.color}</span>
+                <span key={color?.color}>{color?.color}</span>
               ))}
             </p>
             <p>
