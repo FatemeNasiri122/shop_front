@@ -10,7 +10,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       display: 'standalone',
-      injectRegister: 'auto',
+      injectRegister: 'script',
       manifest: {
         name: 'clothing shop',
         short_name: 'shop',
@@ -40,7 +40,6 @@ export default defineConfig({
             sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable',
-            purpose: 'maskable'
           }
         ]
       }
