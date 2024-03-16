@@ -323,7 +323,7 @@ const Products = () => {
           </Grid>
           <div className={classes.paginationContainer}>
             <Pagination
-              count={Math.ceil(data?.totalItems / 4)}
+              count={Math.ceil(data?.totalItems / 8)}
               shape="rounded"
               page={page}
               color="primary"

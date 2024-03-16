@@ -45,7 +45,7 @@ const FavoriteItem = ({ data }) => {
       <Grid container>
         <Grid item xs={12} sm={2}>
           <div className={classes.imageContainer}>
-            <img src={data.image} alt="" />
+            <img loading='lazy' src={data.image} alt="" />
           </div>
         </Grid>
         <Grid
@@ -62,7 +62,7 @@ const FavoriteItem = ({ data }) => {
             <p>
               <strong>color:</strong>{' '}
               {data.colors.map((color) => (
-                <span key={color}>{color}</span>
+                <span key={color}>{color.color}</span>
               ))}
             </p>
             <p>

@@ -10,23 +10,22 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { addToFavorite } from '../../api/auth.js';
 import { openSnackbar } from '../../app/features/snackbar/snackSlice.js';
 
-const AddToFavorite = ({ product }) => {
+const AddToFavorite = ({ product, isSuccess }) => {
   const { user, isLoggedIn } = useSelector((state) => state.user);
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const nav = useNavigate();
   const [favorite, setFavorite] = useState({ text: 'add to favorite', icon: false });
   const queryClient = useQueryClient();
-
   useEffect(() => {
-    if (user) {
+    if (isSuccess) {
       user?.favoriteProducts?.items?.map((p) => {
         if (p._id === product._id) {
           setFavorite(() => ({ text: 'remove from favorite', icon: true }));
         }
       });
     }
-  }, []);
+  }, [isSuccess]);
   const { mutateAsync, isLoading } = useMutation({
     mutationFn: async (data) => addToFavorite(data),
     onError: (error) => {

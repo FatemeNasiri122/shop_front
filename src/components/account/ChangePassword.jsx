@@ -119,7 +119,7 @@ const ChangePassword = () => {
                     },
                     validate: () => {
                       if (watch('newPassword') === watch('password')) {
-                        return 'fuck';
+                        return 'password and new password should be different';
                       }
                     }
                   })}
@@ -159,7 +159,7 @@ const ChangePassword = () => {
                         return 'password and confirm password does not match';
                       }
                       if (watch('confirmPassword') === watch('password')) {
-                        return 'fuck';
+                        return 'password and new password should be different';
                       }
                     }
                   })}

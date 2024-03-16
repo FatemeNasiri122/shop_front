@@ -55,7 +55,6 @@ const Register = () => {
       }
     }
   });
-  console.log(typeof localStorage.getItem('backUrl'));
   const onSubmit = async (data) => {
     await mutateAsync(data);
   };

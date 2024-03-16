@@ -19,7 +19,7 @@ import EmptyState from '../components/helper/EmptyState.jsx';
 
 const Product = () => {
   const { user } = useSelector((state) => state.user);
-  const [selectColor, setSelectColor] = useState({});
+  const [selectColor, setSelectColor] = useState("");
   const [selectSize, setSelectSize] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
@@ -30,6 +30,7 @@ const Product = () => {
   const { isLoading, data, isError, isSuccess } = useQuery({
     queryKey: ['product'],
     queryFn: async () => getProduct(id),
+    cacheTime: 10,
     onSuccess: (response) => {
       user?.cart?.items?.map((item) => {
         if (item.product._id.toString() === response?._id.toString()) {
@@ -42,7 +43,7 @@ const Product = () => {
   useMemo(() => {
     if (isSuccess) {
       setLoadingCart(false);
-      setSelectColor(data?.colors[0]);
+      setSelectColor(data?.colors[0].color);
       setSelectSize(data?.size[0]);
     }
   }, [isSuccess]);
@@ -58,7 +59,6 @@ const Product = () => {
   if (isError) {
     return <EmptyState data="product" />;
   }
-
   return (
     <>
       <Breadcrumbs aria-label="breadcrumb">
@@ -79,7 +79,7 @@ const Product = () => {
                 onClick={() => moveToSelectedImage(i)}
                 className={classes.imgContainer}
               >
-                <img src={image} alt="product" />
+                <img loading='lazy' src={image} alt="product" />
               </div>
             ))}
           </div>
@@ -87,7 +87,7 @@ const Product = () => {
         <Grid item sm={6} lg={7} sx={{ display: { xs: 'none', sm: 'block' } }}>
           <div className={classes.imgCenterContainer}>
             {data?.images.map((img, i) => (
-              <img key={img} id={`item-${i}`} src={img} alt="product" />
+              <img loading='lazy' key={img} id={`item-${i}`} src={img} alt="product" />
             ))}
           </div>
         </Grid>
@@ -96,7 +96,7 @@ const Product = () => {
         </Grid>
         <Grid item sm={6} lg={4} paddingLeft={{ sm: '20px' }}>
           <div className={classes.topCard}>
-            <div className={classes.iconContainer}>{data && <AddToFavorite product={data} />}</div>
+            <div className={classes.iconContainer}>{data && <AddToFavorite isSuccess={isSuccess} product={data} />}</div>
             <h2>{data?.name}</h2>
             <div>
               <strong>code: </strong>
@@ -109,14 +109,14 @@ const Product = () => {
           <div className={classes.colorContainer}>
             <p>
               <strong>color : </strong>
-              <span> {selectColor.color}</span>
+              <span> {selectColor}</span>
             </p>
             <div className={classes.circleContainer}>
               {data?.colors?.map((color) =>
                 color === 'blackAndWhite' ? (
                   <button
                     key={color.code}
-                    onClick={() => setSelectColor(color)}
+                    onClick={() => setSelectColor(color.color)}
                     className={
                       color.color === selectColor ? classes.selectedCircle : classes.circle
                     }
@@ -128,7 +128,7 @@ const Product = () => {
                 ) : (
                   <button
                     key={color}
-                    onClick={() => setSelectColor(color)}
+                    onClick={() => setSelectColor(color.color)}
                     className={
                       color.color === selectColor ? classes.selectedCircle : classes.circle
                     }
@@ -166,7 +166,6 @@ const Product = () => {
                 setErrorMsg={setErrorMsg}
                 setColor={selectColor}
                 setSize={selectSize}
-                item={null}
               />
             ) : (
               <span className={classes.soldOut}>This product is sold out</span>
@@ -183,9 +182,7 @@ const Product = () => {
             </div>
             <Collapse orientation="vertical" in={open === 1}>
               <p>
-                See how this cotton jersey crewneck T-shirt gets shaken up. The garment features the
-                iconic Skull with Brand and rhinestone applications. A saffian leather patch bearing
-                the PP Hexagon is sewn on the yoke. Two needle stitching hems.
+                {data?.productDetails}
               </p>
             </Collapse>
           </div>
@@ -198,7 +195,7 @@ const Product = () => {
               {open === 2 ? <RemoveIcon /> : <AddIcon />}
             </div>
             <Collapse orientation="vertical" in={open === 2}>
-              <p>FABRIC #1: 100% COTTON | TRIMMING #1: 100% GLASS FIBRE</p>
+              <p>{data?.composition}</p>
             </Collapse>
           </div>
           <div className={classes.questionContainer}>
@@ -211,9 +208,7 @@ const Product = () => {
             </div>
             <Collapse orientation="vertical" in={open === 3}>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem cupiditate doloribus
-                eum facere hic ipsum laudantium placeat, quam quia quisquam quo quod reprehenderit
-                suscipit. Atque corporis magnam nobis porro praesentium?
+                {data?.delivery}
               </p>
             </Collapse>
           </div>
@@ -227,9 +222,7 @@ const Product = () => {
             </div>
             <Collapse orientation="vertical" in={open === 4}>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem cupiditate doloribus
-                eum facere hic ipsum laudantium placeat, quam quia quisquam quo quod reprehenderit
-                suscipit. Atque corporis magnam nobis porro praesentium?
+                {data?.authenticity}
               </p>
             </Collapse>
           </div>

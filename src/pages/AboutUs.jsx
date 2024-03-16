@@ -49,7 +49,7 @@ const AboutUS = () => {
           <h1 className={classes.title}>about us</h1>
         </motion.div>
         <motion.div variants={titleVariants} className={classes.aboutImageContainer}>
-          <img src={aboutus} alt="about us" />
+          <img loading='lazy' src={aboutus} alt="about us" />
         </motion.div>
         <motion.div variants={contentVariants}>
           <p>

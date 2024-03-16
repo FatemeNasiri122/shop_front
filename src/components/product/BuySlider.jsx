@@ -21,7 +21,7 @@ export default function BuySlider({ images }) {
       >
         {images.map((img) => (
           <SwiperSlide key={img}>
-            <img style={imgSlider} src={img} alt="product" />
+            <img loading='lazy' style={imgSlider} src={img} alt="product" />
           </SwiperSlide>
         ))}
       </Swiper>

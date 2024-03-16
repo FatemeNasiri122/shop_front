@@ -5,7 +5,7 @@ export default function NewsItem({ data }) {
   return (
     <div className={classes.newsItemContainer}>
       <div className={classes.imageContainer}>
-        <img src={data.smallImage} alt="news" />
+        <img loading='lazy' src={data.smallImage} alt="news" />
       </div>
       <div className={classes.newsContent}>
         <div>

@@ -8,7 +8,7 @@ const NotFound = () => {
 
   return (
     <>
-      <img style={{ width: '100%', height: '400px' }} src={notFound} alt="not found" />
+      <img loading='lazy' style={{ width: '100%', height: '400px' }} src={notFound} alt="not found" />
       <p className="notFoundText">page not found</p>
       <div className="center">
         <Button

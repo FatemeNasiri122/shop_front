@@ -11,7 +11,7 @@ const ShoppingCart = ({ data }) => {
       <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
         <Grid item xs={12} sm={2} sx={{ display: 'flex', justifyContent: 'center' }}>
           <div className={classes.imgDesktop}>
-            <img className={classes.image} src={data.product.image} alt="product" />
+            <img loading='lazy' className={classes.image} src={data.product.image} alt="product" />
           </div>
         </Grid>
         <Grid item xs={12} sm={3} sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -49,8 +49,8 @@ const ShoppingCart = ({ data }) => {
         >
           <AddToCart
             product={data.product}
-            color={'existed'}
-            size={'existed'}
+            color={data.selectedColor[data.selectedColor.length - 1]}
+            size={data.selectedSize[data.selectedSize.length - 1]}
             setIsAlreadyAdded={setIsAlreadyAdded}
           />
         </Grid>
