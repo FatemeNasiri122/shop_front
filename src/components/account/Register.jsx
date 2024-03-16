@@ -45,7 +45,6 @@ const Register = () => {
       );
     },
     onSuccess: (response) => {
-      
       dispatch(loginUser(response.data.user));
       localStorage.setItem('token', response.data.token);
       const url = localStorage.getItem('backUrl') || '/';
@@ -56,7 +55,7 @@ const Register = () => {
       }
     }
   });
-  console.log(typeof localStorage.getItem('backUrl'))
+  console.log(typeof localStorage.getItem('backUrl'));
   const onSubmit = async (data) => {
     await mutateAsync(data);
   };
