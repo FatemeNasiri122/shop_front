@@ -5,7 +5,7 @@ const EmptyState = ({ data }) => {
   return (
     <div className={Class.errorContainer}>
       <div>
-        <img loading='lazy' src={emptyStateImage} alt="no data" />
+        <img loading="lazy" src={emptyStateImage} alt="no data" />
         <p>no {data} found</p>
       </div>
     </div>

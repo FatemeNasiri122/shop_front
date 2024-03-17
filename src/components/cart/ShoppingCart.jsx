@@ -11,7 +11,7 @@ const ShoppingCart = ({ data }) => {
       <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
         <Grid item xs={12} sm={2} sx={{ display: 'flex', justifyContent: 'center' }}>
           <div className={classes.imgDesktop}>
-            <img loading='lazy' className={classes.image} src={data.product.image} alt="product" />
+            <img loading="lazy" className={classes.image} src={data.product.image} alt="product" />
           </div>
         </Grid>
         <Grid item xs={12} sm={3} sx={{ display: 'flex', justifyContent: 'center' }}>

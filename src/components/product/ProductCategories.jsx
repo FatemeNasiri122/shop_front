@@ -12,25 +12,25 @@ const ProductCategories = () => {
       <div className={classes.categoryContainer}>
         <Link to="/products/men" className={classes.category}>
           <span className={classes.categoryImgContainer}>
-            <img loading='lazy' src={men} alt="men" />
+            <img loading="lazy" src={men} alt="men" />
           </span>
           <span>men</span>
         </Link>
         <Link to="/products/women" className={classes.category}>
           <span className={classes.categoryImgContainer}>
-            <img loading='lazy' src={women} alt="women" />
+            <img loading="lazy" src={women} alt="women" />
           </span>
           <span>women</span>
         </Link>
         <Link to="/products/sneakers" className={classes.category}>
           <span className={classes.categoryImgContainer}>
-            <img loading='lazy' src={sneakers} alt="sneakers" />
+            <img loading="lazy" src={sneakers} alt="sneakers" />
           </span>
           <span>sneakers</span>
         </Link>
         <Link to="/products/shoes" className={classes.category}>
           <span className={classes.categoryImgContainer}>
-            <img loading='lazy' src={shoes} alt="shoes" />
+            <img loading="lazy" src={shoes} alt="shoes" />
           </span>
           <span>shoes</span>
         </Link>

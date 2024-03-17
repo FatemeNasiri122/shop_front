@@ -19,7 +19,7 @@ import EmptyState from '../components/helper/EmptyState.jsx';
 
 const Product = () => {
   const { user } = useSelector((state) => state.user);
-  const [selectColor, setSelectColor] = useState("");
+  const [selectColor, setSelectColor] = useState('');
   const [selectSize, setSelectSize] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
@@ -79,7 +79,7 @@ const Product = () => {
                 onClick={() => moveToSelectedImage(i)}
                 className={classes.imgContainer}
               >
-                <img loading='lazy' src={image} alt="product" />
+                <img loading="lazy" src={image} alt="product" />
               </div>
             ))}
           </div>
@@ -87,7 +87,7 @@ const Product = () => {
         <Grid item sm={6} lg={7} sx={{ display: { xs: 'none', sm: 'block' } }}>
           <div className={classes.imgCenterContainer}>
             {data?.images.map((img, i) => (
-              <img loading='lazy' key={img} id={`item-${i}`} src={img} alt="product" />
+              <img loading="lazy" key={img} id={`item-${i}`} src={img} alt="product" />
             ))}
           </div>
         </Grid>
@@ -96,7 +96,9 @@ const Product = () => {
         </Grid>
         <Grid item sm={6} lg={4} paddingLeft={{ sm: '20px' }}>
           <div className={classes.topCard}>
-            <div className={classes.iconContainer}>{data && <AddToFavorite isSuccess={isSuccess} product={data} />}</div>
+            <div className={classes.iconContainer}>
+              {data && <AddToFavorite isSuccess={isSuccess} product={data} />}
+            </div>
             <h2>{data?.name}</h2>
             <div>
               <strong>code: </strong>
@@ -181,9 +183,7 @@ const Product = () => {
               {open === 1 ? <RemoveIcon /> : <AddIcon />}
             </div>
             <Collapse orientation="vertical" in={open === 1}>
-              <p>
-                {data?.productDetails}
-              </p>
+              <p>{data?.productDetails}</p>
             </Collapse>
           </div>
           <div className={classes.questionContainer}>
@@ -207,9 +207,7 @@ const Product = () => {
               {open === 3 ? <RemoveIcon /> : <AddIcon />}
             </div>
             <Collapse orientation="vertical" in={open === 3}>
-              <p>
-                {data?.delivery}
-              </p>
+              <p>{data?.delivery}</p>
             </Collapse>
           </div>
           <div className={classes.questionContainer}>
@@ -221,9 +219,7 @@ const Product = () => {
               {open === 4 ? <RemoveIcon /> : <AddIcon />}
             </div>
             <Collapse orientation="vertical" in={open === 4}>
-              <p>
-                {data?.authenticity}
-              </p>
+              <p>{data?.authenticity}</p>
             </Collapse>
           </div>
         </Grid>

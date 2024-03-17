@@ -23,7 +23,7 @@ const Order = ({ order }) => {
           {order?.cart?.items?.map((item) => {
             return (
               <div className={classes.imgContainer} key={item._id}>
-                <img loading='lazy' src={item.product.image} alt="product" />
+                <img loading="lazy" src={item.product.image} alt="product" />
               </div>
             );
           })}

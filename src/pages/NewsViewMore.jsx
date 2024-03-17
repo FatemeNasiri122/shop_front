@@ -38,7 +38,7 @@ const NewsViewMore = () => {
         <Grid container>
           <Grid item xs={12}>
             <div className={classes.menImageContainer}>
-              <img loading='lazy' src={data?.bigImage} alt="" />
+              <img loading="lazy" src={data?.bigImage} alt="" />
             </div>
           </Grid>
           <Grid item xs={12}>

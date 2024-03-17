@@ -45,7 +45,7 @@ const FavoriteItem = ({ data }) => {
       <Grid container>
         <Grid item xs={12} sm={2}>
           <div className={classes.imageContainer}>
-            <img loading='lazy' src={data.image} alt="" />
+            <img loading="lazy" src={data.image} alt="" />
           </div>
         </Grid>
         <Grid
