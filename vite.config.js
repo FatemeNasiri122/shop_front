@@ -4,10 +4,13 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  esbuild: {
+    target: 'esnext',
+  },
   plugins: [
     react(),
     VitePWA({
-      // strategies: 'injectManifest',
+      strategies: 'injectManifest',
       manifest: {
         theme_color: '#f69435',
         background_color: '#f69435',
