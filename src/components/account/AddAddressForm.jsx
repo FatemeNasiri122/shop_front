@@ -55,7 +55,7 @@ const AddAddressForm = ({ setActive, editedAddress, setEditedAddress }) => {
               </label>
               <TextField
                 id="name"
-                placeholder="Enter your first name"
+                placeholder="Enter your address name"
                 {...register('name', {
                   required: 'this field is required',
                   maxLength: { value: 15, message: 'the maximum first name can be 15 characters' }
