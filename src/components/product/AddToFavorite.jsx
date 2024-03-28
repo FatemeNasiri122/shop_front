@@ -47,7 +47,6 @@ const AddToFavorite = ({ product, isSuccess }) => {
     if (isLoggedIn) {
       await mutateAsync({ product: data });
     } else {
-      localStorage.setItem('backUrl', pathname);
       nav('/signin-or-register');
     }
   };
@@ -61,8 +60,7 @@ const AddToFavorite = ({ product, isSuccess }) => {
         <Button
           onClick={() => add(product)}
           startIcon={favorite.icon ? <StarBorderIcon /> : <StarBorderIcon />}
-          variant="contained"
-        >
+          variant="contained">
           {favorite.text}
         </Button>
       )}

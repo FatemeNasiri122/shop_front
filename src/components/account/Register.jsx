@@ -47,11 +47,9 @@ const Register = () => {
     onSuccess: (response) => {
       dispatch(loginUser(response.data.user));
       localStorage.setItem('token', response.data.token);
-      const url = localStorage.getItem('backUrl') || '/';
       queryClient.invalidateQueries({ queryKey: ['verify-user'] });
       if (pathname.split('/')[1] === 'signin-or-register') {
-        nav(url);
-        localStorage.setItem('backUrl', '/');
+        nav(-1);
       }
     }
   });
@@ -158,8 +156,7 @@ const Register = () => {
                     <IconButton
                       aria-label="toggle password visibility"
                       onClick={() => setShowPassword((prev) => !prev)}
-                      edge="end"
-                    >
+                      edge="end">
                       {showPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
                   </InputAdornment>
@@ -190,8 +187,7 @@ const Register = () => {
                     <IconButton
                       aria-label="toggle password visibility"
                       onClick={() => setShowConfirmPassword((prev) => !prev)}
-                      edge="end"
-                    >
+                      edge="end">
                       {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
                   </InputAdornment>

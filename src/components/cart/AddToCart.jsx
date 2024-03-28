@@ -63,11 +63,9 @@ const AddToCart = ({ product, color, size, setErrorMsg, isAlreadyAdded, setIsAlr
     return (
       <button
         onClick={() => {
-          localStorage.setItem('backUrl', pathname);
           nav('/signin-or-register');
         }}
-        className="btn"
-      >
+        className="btn">
         add to Cart
       </button>
     );
@@ -82,8 +80,7 @@ const AddToCart = ({ product, color, size, setErrorMsg, isAlreadyAdded, setIsAlr
         onClick={() => {
           product.numberOfProduct > 0 && cart('add-to-cart');
         }}
-        className="btn"
-      >
+        className="btn">
         add to Cart
       </button>
     );
@@ -98,15 +95,13 @@ const AddToCart = ({ product, color, size, setErrorMsg, isAlreadyAdded, setIsAlr
                 <button
                   onClick={() => {
                     cart('remove-from-cart');
-                  }}
-                >
+                  }}>
                   <DeleteOutlinedIcon />
                 </button>
                 <button
                   onClick={() => {
                     item.count > 1 && cart('reduce-from-cart');
-                  }}
-                >
+                  }}>
                   <RemoveIcon />
                 </button>
                 {isLoading ? (
@@ -120,8 +115,7 @@ const AddToCart = ({ product, color, size, setErrorMsg, isAlreadyAdded, setIsAlr
                 <button
                   onClick={() => {
                     product.numberOfProduct > 0 && cart('add-to-cart');
-                  }}
-                >
+                  }}>
                   <AddIcon />
                 </button>
               </div>

@@ -45,12 +45,8 @@ const Signin = ({ setSteps }) => {
     onSuccess: (response) => {
       localStorage.setItem('token', response.data.token);
       dispatch(loginUser(response.data.user));
-      const url = localStorage.getItem('backUrl') || '/';
       queryClient.invalidateQueries({ queryKey: ['verify-user'] });
-      if (pathname.split('/')[1] === 'signin-or-register') {
-        nav(url);
-        localStorage.setItem('backUrl', '/');
-      }
+      nav(-1);
     }
   });
   const onSubmit = async (data) => {
@@ -101,8 +97,7 @@ const Signin = ({ setSteps }) => {
                     <IconButton
                       aria-label="toggle password visibility"
                       onClick={() => setShowCurrentPassword((prev) => !prev)}
-                      edge="end"
-                    >
+                      edge="end">
                       {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
                   </InputAdornment>

@@ -31,10 +31,10 @@ const initialSelect = {
       id: 2,
       type: 'color',
       items: [
-        { name: 'red', checked: false },
-        { name: 'black and white', checked: false },
+        { name: 'black', checked: false },
         { name: 'green', checked: false },
-        { name: 'blue', checked: false }
+        { name: 'blue', checked: false },
+        { name: 'phosphor', checked: false }
       ]
     },
     {
@@ -291,8 +291,7 @@ const Products = () => {
                       onClick={() => {
                         closeFilter(select, item);
                       }}
-                      endIcon={<CloseIcon />}
-                    >
+                      endIcon={<CloseIcon />}>
                       {item.name}
                     </Button>
                   )
@@ -305,8 +304,7 @@ const Products = () => {
               variant="contained"
               color="error"
               endIcon={<CloseIcon sx={{ width: '16px', height: '16px' }} />}
-              onClick={() => dispatch({ type: 'clear', id: 0, name: '' })}
-            >
+              onClick={() => dispatch({ type: 'clear', id: 0, name: '' })}>
               clear all
             </Button>
           </div>
