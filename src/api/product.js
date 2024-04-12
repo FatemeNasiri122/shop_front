@@ -5,9 +5,9 @@ export const getProduct = async (id) => {
   return response.data.product;
 };
 
-export const getProducts = async (type, page, selectedItems, category, sortby) => {
+export const getProducts = async (page, selectedItems, category, sortby) => {
   const response = await api(
-    `/get-products/${type}/?page=${page}${selectedItems.join('')}${category}${sortby}`
+    `/get-products/?page=${page}${selectedItems.join('')}${category}${sortby}`
   );
   return response.data;
 };

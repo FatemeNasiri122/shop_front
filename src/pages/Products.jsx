@@ -144,11 +144,10 @@ const Products = () => {
   const [selects, dispatch] = useReducer(reducer, initialSelect);
   const { filterItems, selectedItems, category, sortby } = selects;
   const [page, setPage] = useState(1);
-  const { type } = useParams();
 
   const { isLoading, isError, data } = useQuery({
-    queryKey: ['products', selects, page, type],
-    queryFn: async () => getProducts(type, page, selectedItems, category, sortby)
+    queryKey: ['products', selects, page],
+    queryFn: async () => getProducts(page, selectedItems, category, sortby)
   });
 
   const closeFilter = (select, item) => {

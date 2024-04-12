@@ -17,24 +17,21 @@ const Footer = () => {
               to="https://t.me/FatemeNasiri78/"
               className={FooterClass.iconCircle}
               target="_blank"
-              rel="noopener noreferrer"
-            >
+              rel="noopener noreferrer">
               <TelegramIcon />
             </Link>
             <Link
               to="https://github.com/FatemeNasiri122/"
               className={FooterClass.iconCircle}
               target="_blank"
-              rel="noopener noreferrer"
-            >
+              rel="noopener noreferrer">
               <GitHubIcon />
             </Link>
             <Link
               target="_blank"
               rel="noopener noreferrer"
               to="https://www.linkedin.com/in/seyed-fateme-mirfallah-nasiri-05921424a/"
-              className={FooterClass.iconCircle}
-            >
+              className={FooterClass.iconCircle}>
               <span>in</span>
             </Link>
           </div>
@@ -42,6 +39,7 @@ const Footer = () => {
           <div className={FooterClass.footerLinks}>
             <div className={FooterClass.col}>
               <h4>Our World</h4>
+              <Link to="/products">Products </Link>
               <Link to="/about-us">About </Link>
               {!isLoggedIn && <Link to="/signin-or-register">signin or register</Link>}
               <Link to="/news">News</Link>
@@ -60,8 +58,7 @@ const Footer = () => {
               <Link
                 to="https://github.com/FatemeNasiri122/"
                 target="_blank"
-                rel="noopener noreferrer"
-              >
+                rel="noopener noreferrer">
                 fateme nasiri
               </Link>
             </p>

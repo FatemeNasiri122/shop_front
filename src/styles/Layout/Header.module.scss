@@ -1,13 +1,23 @@
-@import "../../index.scss";
+@import '../../index.scss';
 
 .headerMain {
   text-transform: uppercase;
   padding: 24px 0;
-  
+
+  .logoContainer {
+    width: 300px;
+    height: 35px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   .nav {
     ul {
       display: flex;
-      
+
       .navItem {
         font-weight: 600;
         margin: 0 8px;
@@ -23,8 +33,8 @@
     margin: auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;      
-      
+    justify-content: space-around;
+
     .profileSec {
       display: flex;
       font-weight: 600;
@@ -33,7 +43,6 @@
       }
     }
   }
-
 }
 
 .mobileNav {
@@ -41,7 +50,8 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .hamburgerButton, .mobileMenu {
+  .hamburgerButton,
+  .mobileMenu {
     display: none;
   }
   .logo {
@@ -94,5 +104,3 @@
     }
   }
 }
-
-

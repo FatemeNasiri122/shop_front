@@ -29,7 +29,7 @@ const Routes = () => {
         </Route>
         <Route index element={<Home />} />
         <Route path="/signin-or-register" element={!isLoggedIn && <SigninOrRegister />} />
-        <Route path="/products/:type" element={<Products />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/about-us" element={<AboutUs />} />

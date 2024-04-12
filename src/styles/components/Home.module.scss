@@ -1,18 +1,17 @@
-@import "../../index.scss";
+@import '../../index.scss';
 
-@keyframes welcomeHeader{
-  0%{
+@keyframes welcomeHeader {
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 100;
   }
 }
 
 .bodymain {
-
   .salesec {
-    background: url("/assets/img/repeat-grid.svg") no-repeat;
+    background: url('/assets/img/repeat-grid.svg') no-repeat;
     background-size: cover;
     height: 600px;
     display: flex;
@@ -28,9 +27,6 @@
       font-weight: bold;
       text-transform: uppercase;
       border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
 
       h1 {
         margin-bottom: 0;
@@ -38,7 +34,6 @@
         font-style: italic;
         letter-spacing: 10px;
       }
-
     }
   }
 }
@@ -49,11 +44,11 @@
       height: 430px;
 
       .slogan {
+        width: 90%;
         margin: 8px;
         h1 {
           font-size: 18px;
         }
-
       }
     }
   }

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
 import Collapse from '@mui/material/Collapse';
-import PhoneForwardedOutlinedIcon from '@mui/icons-material/PhoneForwardedOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
 import Badge from '@mui/material/Badge';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import HeaderClass from '../styles/Layout/Header.module.scss';
+import logo from '/assets/img/logo-no-background.svg';
 
 const Header = () => {
   const { isLoggedIn, user } = useSelector((state) => state.user);
@@ -31,28 +30,12 @@ const Header = () => {
       <nav className={HeaderClass.headerMain}>
         <div className={HeaderClass.content}>
           <div className={HeaderClass.profileSec}>
-            <Link to="/contact-us">
-              <PhoneForwardedOutlinedIcon />
-            </Link>
-            <Link to="/news">
-              <NewspaperOutlinedIcon />
-            </Link>
+            <Link to="/products">our products</Link>
           </div>
           <div className={HeaderClass.nav}>
-            <ul className={HeaderClass.menuItems}>
-              <li className={HeaderClass.navItem}>
-                <Link to="/products/men">men</Link>
-              </li>
-              <li className={HeaderClass.navItem}>
-                <Link to="/products/women">woman</Link>
-              </li>
-              <li className={HeaderClass.navItem}>
-                <Link to="/products/sneakers">sneakers</Link>
-              </li>
-              <li className={HeaderClass.navItem}>
-                <Link to="/products/bags">bags</Link>
-              </li>
-            </ul>
+            <div className={HeaderClass.logoContainer}>
+              <img src={logo} alt="logo" loading="lazy" />
+            </div>
           </div>
           <div className={HeaderClass.profileSec}>
             {isLoggedIn ? (
@@ -75,8 +58,7 @@ const Header = () => {
           <div className={HeaderClass.mobileNav}>
             <button
               className={HeaderClass.hamburgerButton}
-              onClick={() => setChecked((prev) => !prev)}
-            >
+              onClick={() => setChecked((prev) => !prev)}>
               <LunchDiningIcon />
             </button>
             <span className={HeaderClass.center}>
@@ -99,10 +81,10 @@ const Header = () => {
           <div className={HeaderClass.mobileMenu}>
             <Collapse orientation="vertical" in={checked}>
               <ul className={HeaderClass.mobileMenuWrapper}>
-                <li onClick={() => closeMenu('/products/men')}>men</li>
-                <li onClick={() => closeMenu('/products/women')}>women</li>
-                <li onClick={() => closeMenu('/products/sneakers')}>sneakers</li>
-                <li onClick={() => closeMenu('/products/bags')}>bags</li>
+                <li onClick={() => closeMenu('/products')}>our products</li>
+                <li onClick={() => closeMenu('/news')}>news</li>
+                <li onClick={() => closeMenu('/about-us')}>about us</li>
+                <li onClick={() => closeMenu('/contact-us')}>contact us</li>
               </ul>
             </Collapse>
           </div>

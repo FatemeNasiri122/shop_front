@@ -15,7 +15,6 @@ const SuggestedProducts = () => {
   if (isLoading) {
     return <LoadingState />;
   }
-
   return (
     <>
       <h1 className="title">suggested products</h1>
