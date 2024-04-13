@@ -182,7 +182,7 @@ const Products = () => {
         <Link to="/" className="breadCrumLink">
           home
         </Link>
-        <span className="breadCrumText">{type}</span>
+        <span className="breadCrumText">products</span>
       </Breadcrumbs>
       <div className={classes.category}>
         <div className={classes.selectsContainer}>
