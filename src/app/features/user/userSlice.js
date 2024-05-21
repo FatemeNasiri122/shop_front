@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { deleteCookie } from '../../../utils/cookie';
 
 const initialState = {
   user: {},
@@ -15,7 +16,7 @@ export const userSlice = createSlice({
       state.isLoggedIn = true;
     },
     logoutUser: (state, action) => {
-      localStorage.removeItem('token');
+      deleteCookie('token');
       return initialState;
     },
     enableLogoutRequest: (state, action) => {

@@ -18,6 +18,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { useLocation } from 'react-router-dom';
 import { registerUser } from '../../api/auth.js';
+import { setCookie } from '../../utils/cookie.js';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -46,7 +47,8 @@ const Register = () => {
     },
     onSuccess: (response) => {
       dispatch(loginUser(response.data.user));
-      localStorage.setItem('token', response.data.token);
+      const token = response.data.token;
+      setCookie("token", token, 7);
       queryClient.invalidateQueries({ queryKey: ['verify-user'] });
       if (pathname.split('/')[1] === 'signin-or-register') {
         nav(-1);

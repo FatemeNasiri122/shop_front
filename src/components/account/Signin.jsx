@@ -18,13 +18,13 @@ import { loginUser } from '../../app/features/user/userSlice.js';
 import { useQueryClient } from '@tanstack/react-query';
 import { signin } from '../../api/auth.js';
 import Loading from '../helper/Loading.jsx';
+import { setCookie } from '../../utils/cookie.js';
 
 const Signin = ({ setSteps }) => {
   const queryClient = useQueryClient();
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const dispatch = useDispatch();
   const nav = useNavigate();
-  const { pathname } = useLocation();
 
   const {
     register,
@@ -43,7 +43,8 @@ const Signin = ({ setSteps }) => {
       );
     },
     onSuccess: (response) => {
-      localStorage.setItem('token', response.data.token);
+      const { token } = response.data;
+      setCookie("token", token, 7);
       dispatch(loginUser(response.data.user));
       queryClient.invalidateQueries({ queryKey: ['verify-user'] });
       nav(-1);
