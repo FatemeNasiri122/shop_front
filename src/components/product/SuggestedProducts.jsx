@@ -1,4 +1,3 @@
-import HomeClass from '../../styles/components/Home.module.scss';
 import Grid from '@mui/material/Grid';
 import Product from './Product.jsx';
 import { getSuggestedProducts } from '../../api/product.js';
@@ -26,7 +25,7 @@ const SuggestedProducts = () => {
 
       </Grid>
       <Grid container sx={{ display: "flex", justifyContent: "center" }}>
-        <Grid item xs={4} >
+        <Grid item md={5} >
           <Link
             className="btn"
             to="/products">
