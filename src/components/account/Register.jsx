@@ -48,7 +48,7 @@ const Register = () => {
     onSuccess: (response) => {
       dispatch(loginUser(response.data.user));
       const token = response.data.token;
-      setCookie("token", token, 7);
+      setCookie("token", token, 1);
       queryClient.invalidateQueries({ queryKey: ['verify-user'] });
       if (pathname.split('/')[1] === 'signin-or-register') {
         nav(-1);

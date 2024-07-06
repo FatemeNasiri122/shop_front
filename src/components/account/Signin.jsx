@@ -44,7 +44,7 @@ const Signin = ({ setSteps }) => {
     },
     onSuccess: (response) => {
       const { token } = response.data;
-      setCookie("token", token, 7);
+      setCookie("token", token, 1);
       dispatch(loginUser(response.data.user));
       queryClient.invalidateQueries({ queryKey: ['verify-user'] });
       nav(-1);

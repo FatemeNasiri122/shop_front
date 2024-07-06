@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getCookie } from '../utils/cookie';
+import { deleteCookie, getCookie } from '../utils/cookie';
 
 const api = axios.create({
   baseURL: `${import.meta.env.VITE_APP_URL}`
@@ -35,7 +35,10 @@ api.interceptors.response.use(
       error?.response?.data?.message === 'jwt expired' &&
       pathname !== ('/signin-or-register' || '/')
     ) {
-      // window.location.href = 'https://shop-front-1.onrender.com/signin-or-register';
+      deleteCookie("token");
+      // window.location.href = `http://localhost:5173/signin-or-register`;
+      window.location.href = `https://clothingshop.onrender.com/signin-or-register`;
+
     }
     return Promise.reject(error);
   }
