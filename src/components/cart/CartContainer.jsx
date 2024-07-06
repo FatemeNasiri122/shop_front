@@ -6,6 +6,7 @@ import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 const CartContainer = () => {
   return (
     <>
+      <h1 className="title">Why Shop With Us</h1>
       <div className={classes.cartContainer}>
         <div className={classes.cart}>
           <LocalShippingIcon sx={{ width: '45px', height: '45px' }} />

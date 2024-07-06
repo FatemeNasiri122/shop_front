@@ -65,8 +65,8 @@ const Product = () => {
         <Link to="/" className="breadCrumLink">
           Home
         </Link>
-        <Link to={`/products/${data?.type}`} className="breadCrumLink">
-          {data?.type}
+        <Link to={`/products`} className="breadCrumLink">
+          products
         </Link>
         <span className="breadCrumText">{data?.name}</span>
       </Breadcrumbs>
