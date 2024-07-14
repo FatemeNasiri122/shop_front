@@ -10,7 +10,7 @@ export default function NewsItem({ data }) {
       <div className={classes.newsContent}>
         <div>
           <strong>{data.title}</strong>
-          <p className={classes.text}>{data.content}</p>
+          <p className={classes.text}>{data.content.split(".")[2]}</p>
         </div>
         <div className={classes.NewsFooter}>
           <span>{data.date}</span>

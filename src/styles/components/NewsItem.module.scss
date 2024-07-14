@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@import '../../index.scss';
 
 .newsItemContainer {
   display: flex;
@@ -8,6 +8,7 @@
 }
 
 .newsContent {
+  width: 80%;
   margin-left: 20px;
   display: flex;
   flex-direction: column;
@@ -31,7 +32,7 @@
   }
 }
 
-@mixin imageContainer($width,$height,$padding) {
+@mixin imageContainer($width, $height, $padding) {
   .imageContainer {
     width: $width;
     height: $height;
@@ -41,11 +42,10 @@
       height: 100%;
     }
   }
-
 }
 
 @media only screen and (min-width: 960px) {
-  @include imageContainer(100%, 174px, 20px);
+  @include imageContainer(20%, 150px, 20px);
 }
 
 @media only screen and (max-width: 960px) {
